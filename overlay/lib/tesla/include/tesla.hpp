@@ -3399,7 +3399,7 @@ namespace tsl {
             SharedThreadData *shData = static_cast<SharedThreadData*>(args);
 
             // To prevent focus glitchout, close the overlay immediately when the home button gets pressed
-            hidsysAcquireHomeButtonEventHandle(&shData->homeButtonPressEvent);
+            hidsysAcquireHomeButtonEventHandle(&shData->homeButtonPressEvent, false);
             eventClear(&shData->homeButtonPressEvent);
 
             while (shData->running) {
@@ -3425,7 +3425,7 @@ namespace tsl {
             SharedThreadData *shData = static_cast<SharedThreadData*>(args);
 
             // To prevent focus glitchout, close the overlay immediately when the power button gets pressed
-            hidsysAcquireSleepButtonEventHandle(&shData->powerButtonPressEvent);
+            hidsysAcquireSleepButtonEventHandle(&shData->powerButtonPressEvent, false);
             eventClear(&shData->powerButtonPressEvent);
 
             while (shData->running) {
